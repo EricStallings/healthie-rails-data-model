@@ -1,0 +1,21 @@
+# Alex sees both providers, on a different plan with each one.
+dana_alex:
+  provider: dana
+  client: alex
+  plan: premium
+
+sam_alex:
+  provider: sam
+  client: alex
+  plan: basic
+
+dana_jordan:
+  provider: dana
+  client: jordan
+  plan: basic
+
+# Riley is only with Sam, so Riley stays out of Dana's feed.
+sam_riley:
+  provider: sam
+  client: riley
+  plan: premium
