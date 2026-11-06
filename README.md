@@ -14,22 +14,37 @@ bin/rails test                      # model tests
 bin/rails console                   # poke around
 ```
 
+## Looking at the data
+
+There are no web pages or API endpoints, so `bin/rails server` has nothing to
+show. Look at the data one of these ways instead:
+
+- **`bin/rails console`**: a Ruby prompt with the models loaded, e.g.
+  `Provider.first.clients` or `Client.find_by(email: "thor@example.com").enrollments`.
+- **`bin/rails dbconsole`**: a raw SQLite prompt (`.tables`, `SELECT * FROM enrollments;`).
+- **A database GUI** (DBeaver, TablePlus, etc.): open `storage/development.sqlite3`.
+
 ## Schema
 
+Each arrow points from a foreign key to the `id` it holds. Every table also
+gets `created_at` / `updated_at`.
+
 ```
-providers                 enrollments                  clients
----------                 -----------                  -------
-id                   ┌──< provider_id                  id
-name                 │    client_id  >───────────────┐ name
-email (unique)  ─────┘    plan ('basic'|'premium')   └─ email (unique)
-                          unique (provider_id, client_id)
-                                                         │
-                                       journal_entries   │
-                                       ---------------   │
-                                       client_id  >──────┘
-                                       body (text)
-                                       created_at
-                                       index (client_id, created_at)
+providers              enrollments                    clients
+---------              -----------                    -------
+id  <───────────┐      id                       ┌───> id
+name            └───── provider_id              │     name
+email (unique)         client_id  ──────────────┘     email (unique)
+                       plan ('basic'|'premium')         ▲
+                       unique (provider_id, client_id)  │
+                                                        │
+                       journal_entries                  │
+                       ---------------                  │
+                       id                               │
+                       client_id  ──────────────────────┘
+                       body (text)
+                       created_at
+                       index (client_id, created_at)
 ```
 
 - **`Enrollment` is the join model and holds the plan.** The plan describes the
