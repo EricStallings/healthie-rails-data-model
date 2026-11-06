@@ -1,21 +1,21 @@
-# Alex sees both providers, on a different plan with each one.
-dana_alex:
-  provider: dana
-  client: alex
+# Thor sees both providers, on a different plan with each one.
+strange_thor:
+  provider: strange
+  client: thor
   plan: premium
 
-sam_alex:
-  provider: sam
-  client: alex
+banner_thor:
+  provider: banner
+  client: thor
   plan: basic
 
-dana_jordan:
-  provider: dana
-  client: jordan
+strange_steve:
+  provider: strange
+  client: steve
   plan: basic
 
-# Riley is only with Sam, so Riley stays out of Dana's feed.
-sam_riley:
-  provider: sam
-  client: riley
+# Peter is only with Banner, so Peter stays out of Strange's feed.
+banner_peter:
+  provider: banner
+  client: peter
   plan: premium

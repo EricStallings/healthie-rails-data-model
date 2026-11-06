@@ -62,6 +62,9 @@ order is stable. `script/queries.rb` prints the SQL for each query.
   yesterday"), I'd add an `entry_date` and sort on that.
 - **Separate tables vs. one `users` table.** If one person could be both a
   provider and a client, or if both need to log in, I'd move to a shared table.
+- **"Dr." lives in the name.** That's fine for seed data, but not every provider
+  is a doctor (most dietitians aren't), so I'd add a `title` or `credentials`
+  column and keep `name` plain for sorting and search.
 - **Large datasets.** The provider feed joins through `clients` and could join
   `enrollments` directly. At scale I'd also paginate by keyset rather than
   offset, and look at denormalizing the feed if it gets hot.

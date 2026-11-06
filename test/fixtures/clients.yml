@@ -1,11 +1,11 @@
-alex:
-  name: Alex Kim
-  email: alex@example.com
+thor:
+  name: Thor Odinson
+  email: thor@example.com
 
-jordan:
-  name: Jordan Patel
-  email: jordan@example.com
+steve:
+  name: Steve Rogers
+  email: steve@example.com
 
-riley:
-  name: Riley Chen
-  email: riley@example.com
+peter:
+  name: Peter Parker
+  email: peter@example.com

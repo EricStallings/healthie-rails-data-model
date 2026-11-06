@@ -1,19 +1,19 @@
-alex_old:
-  client: alex
+thor_old:
+  client: thor
   body: Oatmeal and berries for breakfast.
   created_at: <%= 3.days.ago %>
 
-alex_new:
-  client: alex
+thor_new:
+  client: thor
   body: Skipped lunch, big dinner.
   created_at: <%= 1.day.ago %>
 
-jordan_mid:
-  client: jordan
+steve_mid:
+  client: steve
   body: Walked 20 minutes after dinner.
   created_at: <%= 2.days.ago %>
 
-riley_today:
-  client: riley
+peter_today:
+  client: peter
   body: Tried the new meal plan.
   created_at: <%= 1.hour.ago %>

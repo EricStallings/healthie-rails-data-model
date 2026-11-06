@@ -7,7 +7,7 @@ class ContactableTest < ActiveSupport::TestCase
   end
 
   test "email has to be unique, ignoring case" do
-    assert_not Provider.new(name: "Dupe", email: "DANA@example.com").valid?
+    assert_not Provider.new(name: "Dupe", email: "STRANGE@example.com").valid?
   end
 
   test "name and email are required" do
