@@ -3,6 +3,7 @@ class CreateJournalEntries < ActiveRecord::Migration[8.1]
     create_table :journal_entries do |t|
       # No index of its own, the one below covers client_id lookups too.
       t.references :client, null: false, foreign_key: true, index: false
+      # text instead of string, since entries can be long.
       t.text :body, null: false
       t.timestamps
     end

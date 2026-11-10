@@ -1,5 +1,6 @@
 # A small set of data to try the queries against. It clears everything first,
 # so it's safe to run again.
+# Children go before parents so the foreign keys don't complain.
 JournalEntry.delete_all
 Enrollment.delete_all
 Client.delete_all

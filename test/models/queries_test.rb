@@ -3,6 +3,7 @@ require "test_helper"
 # The four queries the pre-work asks for.
 class QueriesTest < ActiveSupport::TestCase
   test "all clients for a given provider" do
+    # Sort both sides, since we only care who's in the list, not the order.
     assert_equal [clients(:thor), clients(:steve)].sort, providers(:strange).clients.sort
   end
 
@@ -11,6 +12,7 @@ class QueriesTest < ActiveSupport::TestCase
   end
 
   test "all journal entries for a given client, sorted by date" do
+    # Order matters here, so no sorting.
     assert_equal [journal_entries(:thor_new), journal_entries(:thor_old)],
                  clients(:thor).journal_entries.newest_first.to_a
   end

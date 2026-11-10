@@ -13,6 +13,8 @@ class CreateEnrollments < ActiveRecord::Migration[8.1]
     # One enrollment per provider and client. provider_id goes first so this also
     # handles "all clients for a provider", and t.references indexed client_id.
     add_index :enrollments, %i[provider_id client_id], unique: true
+    # The database itself refuses any plan that isn't basic or premium, even if the
+    # model check is skipped.
     add_check_constraint :enrollments, "plan IN ('basic', 'premium')", name: "enrollments_plan_valid"
   end
 end

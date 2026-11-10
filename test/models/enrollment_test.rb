@@ -17,6 +17,7 @@ class EnrollmentTest < ActiveSupport::TestCase
     assert_not duplicate.valid?
   end
 
+  # Skips the Ruby check on purpose, to prove the database unique index catches it anyway.
   test "the database backs up the unique pair even if validations are skipped" do
     assert_raises(ActiveRecord::RecordNotUnique) do
       Enrollment.new(provider: providers(:strange), client: clients(:thor)).save(validate: false)
